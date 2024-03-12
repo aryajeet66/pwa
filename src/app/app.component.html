@@ -1,11 +1,255 @@
-<h1>pwa</h1>
-<button (click)="callMsg()">Clickthis</button>
-<p *ngIf="showMyMessage">{{msg}}</p>
+<nav class="navTest navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="bajajBrand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+            </svg>
+        </a>
+        <a class="bajajBrand navbar-brand" href="#">{{title}}</a>
+        <button class="bajajBrand navbar-toggler border-0" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                <path
+                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+            </svg>
+        </button>
+    </div>
+</nav>
 
-<input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+<div class="mainDiv container-fluid">
+    <div class="bg-light mt-1 rounded shadow h-100 p-3 justify-content-center">
+        <p class="lead text-justify">{{infoHeadingOne}}</p>
+        <p class="text-muted text-justify">{{infoDetailOne}}</p>
+    </div>
+<!-- responsive test -->
+    <div *ngIf="isDesktopLayout" class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex">
+            <p class="lead mx-2 text-justify">{{quickTitle}}</p>
+        </div>
+        <div class="d-flex align-items-center flex-row container-fluid w-100">
+            <div class="row">
+                <div *ngFor="let item of quickActionsTitle; index as i"
+                    class="iconClass mx-auto p-2 container-fluid col">
+                    <span class="mx-auto p-3 rounded shadow">
+                        <a href="/">
+                            <img src='{{"../assets/images/" + quickActionsIcons[i] + ".svg"}}' width="32" height="32">
+                        </a>
+                    </span>
+                    <p class="iconClass mt-2 text-justify">
+                        {{quickActionsTitle[i]}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="upiCopyBtn btn bg-primary w-auto justify-content-center" (click)="callMsg()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-copy me-2"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+            </svg>
+            {{upiCopyBtnText}}
+        </button>
+    </div>
+<!-- responsive test -->
+    <div *ngIf="!isDesktopLayout" class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <p class="lead mx-2 text-justify">{{quickTitle}}</p>
+        <div class="d-flex align-items-center flex-row container-fluid overflow-auto">
+            <div *ngFor="let item of quickActionsTitle; index as i" class="iconClass mx-auto w-50 p-2">
+                <span class="mx-auto mt-1 mb-3 p-3 rounded shadow">
+                    <a class="mx-auto" href="/">
+                        <img class="" src='{{"../assets/images/" + quickActionsIcons[i] + ".svg"}}' width="32"
+                            height="32">
+                    </a>
+                </span>
+                <p class="iconClass mt-3 w-50 text-justify">
+                    {{quickActionsTitle[i]}}
+                </p>
+            </div>
+        </div>
+        <button class="upiCopyBtn btn bg-primary w-auto justify-content-center" (click)="callMsg()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-copy me-2"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+            </svg>
+            {{upiCopyBtnText}}
+        </button>
+    </div>
 
-<script type="text/javascript">
-    function showAndroidToast(toast) {
-        Android.showToast(toast);
-    }
-</script>
+    <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex align-items-center flex-row">
+            <p class="lead mx-2 text-justify">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                    class="bi bi-wallet2 mx-auto" viewBox="0 0 16 16">
+                    <path
+                        d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z" />
+                </svg>
+                {{upiLite}}
+            </p>
+            <a href="/" class="upiCopyBtn btn bg-primary justify-content-center w-auto mx-2 p-2 mb-3"
+                (click)="callMsg()">
+                Know More
+            </a>
+        </div>
+    </div>
+<!-- responsive test -->
+    <div *ngIf="isDesktopLayout; else ogLayout" class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex">
+            <p class="lead mx-2 text-justify">Bajaj Pay Wallet</p>
+        </div>
+        <div class="d-flex align-items-center flex-row container-fluid w-100">
+            <div class="row">
+                <div *ngFor="let item of bpayWalletNames; index as i"
+                    class="iconClass mx-auto p-2 container-fluid col">
+                    <span class="mx-auto p-3 rounded shadow">
+                        <a href="/">
+                            <img src='{{"../assets/images/" + bpayWalletIcons[i] + ".svg"}}' width="32" height="32">
+                        </a>
+                    </span>
+                    <p class="iconClass mt-2 text-justify">
+                        {{bpayWalletNames[i]}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- responsive test -->
+    <ng-template #ogLayout>
+        <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <p class="lead mx-2 text-justify">Bajaj Pay Wallet</p>
+        <div class="d-flex align-items-center flex-row container-fluid w-100 overflow-auto">
+            <div *ngFor="let item of bpayWalletNames; index as i" class="iconClass mx-auto p-2 container-fluid">
+                <span class="mx-auto mt-1 mb-3 p-3 rounded shadow">
+                    <a class="mx-auto" href="/">
+                        <img src='{{"../assets/images/" + bpayWalletIcons[i] + ".svg"}}' width="32" height="32">
+                    </a>
+                </span>
+                <p class="iconClass mt-3 w-50 text-justify">
+                    {{bpayWalletNames[i]}}
+                </p>
+            </div>
+        </div>
+        </div>
+    </ng-template>
+
+    <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex">
+            <p class="lead flex-lg-row mx-2 me-3 text-justify">Bills & Recharge</p>
+            <a class="viewAll align-items-right text-primary w-auto float-end mt-1">
+                View All
+            </a>
+        </div>
+        <div class="d-flex align-items-center flex-row container-fluid w-100">
+            <div class="row">
+                <div *ngFor="let item of billsBanner; index as i" class="iconClass mx-auto p-2 container-fluid col">
+                    <span class="mx-auto p-3 rounded shadow">
+                        <a href="/">
+                            <img class="" src='{{"../assets/images/" + imgSrc[i] + ".svg"}}' width="32" height="32">
+                        </a>
+                    </span>
+                    <p class="mt-2 text-justify">
+                        {{billsBanner[i]}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex align-items-center flex-row">
+            <p class="lead mx-2  text-justify">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                    class="bi bi-receipt mx-auto" viewBox="0 0 16 16">
+                    <path
+                        d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z" />
+                    <path
+                        d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5" />
+                </svg>
+                My Billers
+            </p>
+            <a href="/" class="upiCopyBtn btn bg-primary justify-content-center w-auto mx-2 p-2 mb-3"
+                (click)="callMsg()">
+                Manage
+            </a>
+        </div>
+        <p class="text-muted text-justify">
+            Add your bills & get notified when it's due
+        </p>
+    </div>
+
+    <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex">
+            <p class="lead mx-2 text-justify">Our Offerings</p>
+        </div>
+        <div class="d-flex align-items-center flex-row container-fluid w-100">
+            <div class="row">
+                <div *ngFor="let item of ourOfferingsTitle; index as i"
+                    class="iconClass mx-auto p-2 container-fluid col">
+                    <span class="mx-auto p-3 rounded shadow">
+                        <a href="/">
+                            <img src='{{"../assets/images/" + ourOfferingsIcons[i] + ".svg"}}' width="32" height="32">
+                        </a>
+                    </span>
+                    <p class="iconClass mt-2 text-justify">
+                        {{ourOfferingsTitle[i]}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex align-items-center flex-row">
+            <p class="lead mx-2 text-justify">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                    <path
+                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+                </svg>
+                Payment Settings
+            </p>
+            <div>
+                <a href="/" class="settingsBtn justify-content-center mx-auto" (click)="callMsg()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-arrow-right mb-3" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <p class="text-muted text-justify">
+            Your payment instruments & settings
+        </p>
+    </div>
+
+    <div class="bg-light mt-3 rounded shadow h-100 p-3 justify-content-center">
+        <div class="d-flex align-items-center flex-row">
+            <p class="lead mx-2 text-justify">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                    class="bi bi-receipt mx-auto" viewBox="0 0 16 16">
+                    <path
+                        d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z" />
+                    <path
+                        d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5" />
+                </svg>
+                Refer a Merchant
+            </p>
+            <a href="/" class="upiCopyBtn btn bg-primary justify-content-center w-auto mx-2 p-2 mb-3"
+                (click)="callMsg()">
+                Know How
+            </a>
+        </div>
+        <p class="text-muted text-justify">
+            Accept payment via UPI QR, Card Machine
+        </p>
+    </div>
+</div>
+
+<!-- <p *ngFor="let item of bpayWalletSub; index as i" class="text-primary ">
+        {{bpayWalletSub[i]}}
+    </p> -->

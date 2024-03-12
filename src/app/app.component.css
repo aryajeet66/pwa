@@ -1,0 +1,54 @@
+body{
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.navTest{
+    background-color: #030127;
+}
+
+.upiCopyBtn
+{
+    font-size: 13px;
+    color:white;
+}
+
+.settingsBtn{
+    font-size: 13px;
+    color:black;
+}
+
+.bajajBrand
+{
+ color: white;
+}
+
+.navTest{
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    float: left;
+    display: block;
+    z-index: 1;
+}
+
+.mainDiv{
+    padding: 18px;
+    margin-top: 40px;
+}
+
+.viewAll {
+    text-decoration: none;
+  }
+
+.iconClass{
+    position: relative;
+}
+
+.gridContainer{
+    display: grid;
+}
